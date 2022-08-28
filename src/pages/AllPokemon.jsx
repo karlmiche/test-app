@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useGetAllPokemonQuery, useGetPokemonByNameQuery } from '../reducers/apiSlice';
+import { useGetAllPokemonQuery } from '../reducers/apiSlice';
 import PokemonCard from '../components/PokemonCard';
 
 const AllPokemon = () => {

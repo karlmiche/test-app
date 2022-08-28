@@ -2,23 +2,28 @@ import React, { useState } from "react";
 import { useGetPokemonByNameQuery } from "../reducers/apiSlice";
 
 const SearchForm = () => {
-  const [searchTerm, setSearchTerm] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("charizard");
+  const [selectedPoke, setSelectedPoke] = useState(null);
 
-  const handleInputChange = event => {
-    setSearchTerm(event.target.value)
-  };
+  const {
+    data: pokemon,
+    error,
+    isLoading,
+  } = useGetPokemonByNameQuery();
 
   const handleSubmit = () => {
-    const { data: pokemon, error, isLoading } = useGetPokemonByNameQuery(searchTerm);
-    console.log(pokemon);
-  }
+    setSelectedPoke(pokemon);
+  };
 
   return (
     <div>
-        <form onSubmit={handleSubmit}>
-            <input placeholder="Enter pokemon name" id="name" onChange={event => handleInputChange(event)}/>
-            <button type="submit">Search them all!</button>
-        </form>
+      <form onSubmit={handleSubmit}>
+        <input
+          onChange={(e) => setSearchTerm(e.target.value)}
+          placeholder="Search for Pokemon"
+        />
+        <button type="submit">Search them all!</button>
+      </form>
     </div>
   );
 };
