@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import AllPokemon from './pages/AllPokemon';
 
 function App() {
   return (
     <div className="App">
-      hello pokemon!
+      <AllPokemon />
     </div>
   );
 }
