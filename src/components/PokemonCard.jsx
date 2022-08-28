@@ -3,8 +3,6 @@ import React, { useState } from "react";
 export const PokemonCard = (props) => {
 
  const name = props.pokemon.name;
- const types = props.pokemon.types;
- const description = props.pokemon.description;
 
  const minimalCard = (
     <div key={props.pokemon.id}>
@@ -13,11 +11,11 @@ export const PokemonCard = (props) => {
     </div>
  )
 
- const detailedCard = (
-    <div>
-        detailed card
-    </div>
- )
+//  const detailedCard = (
+//     <div>
+//         detailed card
+//     </div>
+//  )
 
   return (
     minimalCard

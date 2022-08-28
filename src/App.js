@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import SearchForm from './components/SearchForm';
+import AllPokemon from './pages/AllPokemon';
 
 function App() {
   return (
     <div className="App">
-      <SearchForm />
+      <AllPokemon />
     </div>
   );
 }
