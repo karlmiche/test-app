@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { useGetAllPokemonQuery } from '../reducers/apiSlice';
+import { useGetAllPokemonQuery, useGetPokemonByNameQuery } from '../reducers/apiSlice';
+import PokemonCard from '../components/PokemonCard';
 
-export const AllPokemon = () => {
+const AllPokemon = () => {
  
     const { data: pokemon, error, isLoading } = useGetAllPokemonQuery();
   
@@ -13,13 +14,7 @@ export const AllPokemon = () => {
           <>Loading...</>
         ) : pokemon ? (
             pokemon.results.map((pokemon) => (
-                <div key={pokemon.id}>
-                    <button
-                      className="favorite-button"
-                    >
-                      {pokemon.name}
-                    </button>
-                </div>
+               <PokemonCard pokemon={pokemon} />
               ))
         ) : null}
       </>
